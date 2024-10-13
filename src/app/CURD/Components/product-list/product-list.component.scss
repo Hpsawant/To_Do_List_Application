@@ -1,29 +1,131 @@
+/* Container styles */
 .container {
-  max-width: 1000px; /* Set a max width for larger screens */
+  max-width: 1000px;
+  margin: auto;
 }
 
+h1.text-center {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* Buttons styling */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+  border-color: #4e555b;
+}
+
+/* Table styles */
 .table {
-  font-size: 1rem; /* Font size for table */
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+  text-align: center;
 }
 
 .table th {
-  text-align: center; /* Center align the header text */
-  background-color: #343a40; /* Dark background for header */
-  color: white; /* White text color for better contrast */
+  background-color: #343a40;
+  color: white;
 }
 
 .table td {
-  vertical-align: middle; /* Vertically align the content in table cells */
+  font-size: 14px;
 }
 
-.btn {
-  margin-right: 5px; /* Space between buttons */
+.table .dropdown-menu {
+  min-width: auto;
 }
 
-.mt-5 {
-  margin-top: 3rem !important; /* Adjust margin for better spacing */
+/* Pagination styles */
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
+.pagination-controls span {
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* Dropdown for Actions */
+.dropdown-toggle::after {
+  margin-left: 5px;
+}
+
+.dropdown-menu {
+  min-width: 120px;
+  text-align: center;
+}
+
+.dropdown-item {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.dropdown-item.text-danger:hover {
+  background-color: #f8d7da;
+}
+
+.dropdown-item.text-danger {
+  color: #dc3545;
+}
+
+/* Search bar styles */
+.form-control {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.form-control::placeholder {
+  font-style: italic;
+  color: #888;
+}
+
+/* General styles */
 .mb-3 {
-  margin-bottom: 1rem !important; /* Bottom margin for the add button */
+  margin-bottom: 1rem;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bs
+{
+
+  margin-left: 70%;
 }

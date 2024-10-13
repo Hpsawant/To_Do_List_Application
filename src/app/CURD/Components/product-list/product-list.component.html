@@ -1,54 +1,67 @@
 <div class="container mt-5">
-    <h1 class="text-center">Task Management</h1>
-    <div class="d-flex justify-content-between mb-3">
+  <h1 class="text-center">Task Management App</h1>
+
+  <!-- Add New Task and Refresh Button -->
+  <div class="d-flex align-items-start gap-2 mb-3 w-100 bs">
+    <div class="ms-5 ">
       <a routerLink="/add" class="btn btn-primary">Add New Task</a>
       <button class="btn btn-primary" (click)="refreshTasks()">Refresh</button>
     </div>
-  
-    <!-- Search Bar -->
-    <div class="mb-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search tasks..."
-        [(ngModel)]="searchTerm"
-        (input)="filterTasks()"
-      />
-    </div>
-    
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered">
-        <thead class="thead-dark">
-          <tr>
-            <th>Assigned To</th>
-            <th>Status</th>
-            <th>Due Date</th>
-            <th>Priority</th>
-            <th>Comments</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let task of paginatedTasks">
-            <td>{{ task.assignedTo }}</td>
-            <td>{{ task.status }}</td>
-            <td>{{ task.dueDate | date: 'shortDate' }}</td>
-            <td>{{ task.priority }}</td>
-            <td>{{ task.comments }}</td>
-            <td>
-              <button class="btn btn-danger btn-sm" (click)="deleteTask(task.id)">Delete</button>
-              <a [routerLink]="['/edit', task.id]" class="btn btn-warning btn-sm">Edit</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <!-- Pagination Controls -->
-    <div class="d-flex justify-content-between">
-      <button class="btn btn-secondary" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-      <span>Page {{ currentPage }} of {{ totalPages }}</span>
-      <button class="btn btn-secondary" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
-    </div>
   </div>
   
+
+  <!-- Search Bar -->
+  <div class="mb-3 bs">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search tasks..."
+      [(ngModel)]="searchTerm"
+      (input)="filterTasks()"
+    />
+  </div>
+
+  <!-- Task Table -->
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Assigned To</th>
+          <th>Status</th>
+          <th>Due Date</th>
+          <th>Priority</th>
+          <th>Comments</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of paginatedTasks">
+          <td>{{ task.assignedTo }}</td>
+          <td>{{ task.status }}</td>
+          <td>{{ task.dueDate | date: 'shortDate' }}</td>
+          <td>{{ task.priority }}</td>
+          <td>{{ task.comments }}</td>
+          <td>
+            <!-- Edit and Delete Buttons with Dropdown Style -->
+            <div class="dropdown">
+              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                <!-- Actions -->
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" [routerLink]="['/edit', task.id]">Edit</a></li>
+                <li><a class="dropdown-item text-danger" (click)="deleteTask(task.id)">Delete</a></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-secondary" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button class="btn btn-secondary" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>
